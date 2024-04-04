@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:mojadel2/registar/registar_page.dart';
 import 'package:mojadel2/sample/things_sample.dart';
-
 import '../colors/colors.dart';
 
-
-
 class MainhomePage extends StatefulWidget {
-  const MainhomePage({Key? key})
-      : super(
-    key: key,
-  );
-
-
+  const MainhomePage({Key? key}) : super(key: key);
   @override
   State<MainhomePage> createState() => _MainhomePageState();
 }
@@ -22,6 +15,28 @@ class _MainhomePageState extends State<MainhomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title:Text('화정동', style: TextStyle(
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w300,
+            color: Colors.black
+        ),),
+        backgroundColor: AppColors.mintgreen,
+        actions: [
+          IconButton(
+            onPressed: (){},
+            icon: Icon(Icons.search),
+            color: Colors.black,),
+          IconButton(
+            onPressed: (){},
+            icon: Icon(Icons.notifications),
+            color: Colors.black,),
+          IconButton(
+            onPressed: (){},
+            icon: Icon(Icons.menu),
+            color: Colors.black,)
+        ],
+      ),
       body: Column(
         children: <Widget>[
           Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 0)),
@@ -108,7 +123,14 @@ class _MainhomePageState extends State<MainhomePage> {
         child: Icon(Icons.add),
         onPressed: (){
           Navigator.push(context,
-              MaterialPageRoute(builder: (context)=> const RegistarPage()));
+              MaterialPageRoute(builder: (context)=> RegistarPage(key: UniqueKey(),
+                selectedPlaceName: "선택된 장소 이름",
+                textController: TextEditingController(), // 적절한 초기화 필요
+                textController2: TextEditingController(), // 적절한 초기화 필요
+                priceController: TextEditingController(), // 적절한 초기화 필요
+                image: XFile(""), // 적절한 초기화 필요
+                selectedOption: "",
+              )),);
         },
       ),
     );

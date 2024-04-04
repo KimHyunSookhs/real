@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mojadel2/colors/colors.dart';
 import 'package:mojadel2/homepage/main_homepage.dart';
+import 'package:mojadel2/mypage/mypage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,35 +18,13 @@ class _HomePageState extends State<HomePage> {
     Text('내주변'),
     Text('요모조모'),
     Text('레시피'),
-    Text('마이페이지'),
+    mypagesite(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title:Text('화정동', style: TextStyle(
-              fontFamily: 'Inter',
-              fontWeight: FontWeight.w300,
-              color: Colors.black
-          ),),
-          backgroundColor: AppColors.mintgreen,
-          actions: [
-            IconButton(
-              onPressed: (){},
-              icon: Icon(Icons.search),
-              color: Colors.black,),
-            IconButton(
-              onPressed: (){},
-              icon: Icon(Icons.notifications),
-              color: Colors.black,),
-            IconButton(
-              onPressed: (){},
-              icon: Icon(Icons.menu),
-              color: Colors.black,)
-          ],
-        ),
         body: Center(
           child: _widgetOptions.elementAt(_selectedIndex),
         ),
