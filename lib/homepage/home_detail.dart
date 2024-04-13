@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:mojadel2/colors/colors.dart';
 import 'package:mojadel2/homepage/main_homepage.dart';
 import 'package:mojadel2/mypage/mypage.dart';
+
+import '../yomojomo/messageboard.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,12 +14,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  static final XFile defaultImage = XFile('');
 
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget> [
     MainhomePage(),
     Text('내주변'),
-    Text('요모조모'),
+    MessageBoard(),
     Text('레시피'),
     mypagesite(),
   ];
@@ -40,8 +44,8 @@ class _HomePageState extends State<HomePage> {
             BottomNavigationBarItem(icon: Icon(Icons.chat_rounded), label: '요모조모'),
             BottomNavigationBarItem(icon: Icon(Icons.dinner_dining), label: '레시피'),
             BottomNavigationBarItem(
-                icon: Image.asset('assets/images/img_doll_1.png',width: 30,height: 30,),
-                activeIcon: Image.asset('assets/images/img_doll_1.png',width: 30,height: 30,),
+                icon: Image.asset('assets/Icon/houseimg.png',width: 30,height: 30,),
+                activeIcon: Image.asset('assets/Icon/houseimg.png',width: 30,height: 30,),
                 label: '마이페이지'),
           ],
           onTap: (int index){
@@ -50,7 +54,7 @@ class _HomePageState extends State<HomePage> {
             });
           },
         ),
-      ),
+      )
     );
   }
 }
